@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 void PrintScoreboard(int score, int multiplier, int moves, int locX, int locY) {
   printf(" ------------------------------------------------------\n");
   printf("|                    SCOREBOARD                        |\n");
