@@ -1,13 +1,12 @@
-//Todo: update PrintScoreboard to show proper values
-void PrintScoreboard() {
+void PrintScoreboard(int score, int multiplier, int moves, int locX, int locY) {
   printf(" ------------------------------------------------------\n");
   printf("|                    SCOREBOARD                        |\n");
   printf("|------------------------------------------------------|\n");
-  printf("| Score      |          |  Location X   |              |\n");
+  printf("| Score      |    %i    |  Location X   |     %i       |\n", score, locX);
   printf("|------------------------------------------------------|\n");
-  printf("| Multiplier |          |  Location Y   |              |\n");
+  printf("| Multiplier |    %i    |  Location Y   |     %i       |\n", multiplier, locY);
   printf("|------------------------------------------------------|\n");
-  printf("| Moves Left |          |                              |\n");
+  printf("| Moves Left |    %i    |                              |\n", moves);
   printf(" ------------------------------------------------------\n");
 }
 
