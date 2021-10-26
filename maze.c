@@ -7,17 +7,20 @@
 
 int main(void)
 {
-  //while (1)
-  //{
-    for(int i = 0; i < 27; i++)
+  int startingLoc[2] = {0,0};
+  Player curPlayer;
+  initPlayer( startingLoc, 100, 0, 1);
+  PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
+
+  for(int i = 0; i < 27; i++)
+  {
+    for(int j = 0; j < 52; j++)
     {
-      for(int j = 0; j < 52; j++)
-      {
-        printf("%c", maze1[i][j]);
-      }
+      printf("%c", maze1[i][j]);
     }
-  //}
-  
+  }
+
 
   return 0;
 }
+
