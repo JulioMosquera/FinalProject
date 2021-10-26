@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "ascii_ArtsAndMazes.h"
 #include "player.h"
+//THIS LINE WAS ADDED TO TEST MAIN SCREEN PRINT
 #include "mainScreen.c"
 
 #define KNRM  "\x1B[0m"
@@ -19,6 +20,7 @@ int main(void)
   int startingLoc[2] = {0,0};
   Player curPlayer;
   curPlayer = initPlayer( startingLoc, 100, 0, 1);
+  //THIS LINE WAS ADDED TO TEST MAIN SCREEN PRINT
   PrintMainScreen();
   PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
   
