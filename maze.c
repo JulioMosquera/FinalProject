@@ -23,6 +23,7 @@ int main(void)
   //THIS LINE WAS ADDED TO TEST MAIN SCREEN PRINT
   PrintMainScreen();
   PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
+  PrintGameOver();
   
 
 for(int i = 0; i < 27; i++){
