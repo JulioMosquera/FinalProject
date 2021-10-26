@@ -9,7 +9,7 @@ int main(void)
 {
   int startingLoc[2] = {0,0};
   Player curPlayer;
-  initPlayer( startingLoc, 100, 0, 1);
+  curPlayer = initPlayer( startingLoc, 100, 0, 1);
   PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
 
   for(int i = 0; i < 27; i++)
