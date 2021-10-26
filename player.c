@@ -2,20 +2,22 @@
 
 #include "player.h"
 
-Player initPlayer(int l[2], int ml, int s, int sm)
+Player initPlayer(int loc[2], int ml, int s, int sm)
 {
     Player newPlayer;
 
-    newPlayer.location = l;
+    newPlayer.location[0] = loc[0];
+    newPlayer.location[1] = loc[1];
     newPlayer.movesLeft = ml;
     newPlayer.score = 0;
     newPlayer.scoreMultipler = 1;
     return newPlayer;
 }
 
-Player moverplayer(Player p, int l[2])
+Player moverplayer(Player p, int loc[2])
 {
-  p.location = l;
+  p.location[0] = loc[0];
+  p.location[1] = loc[1];
   return p;
 }
 
