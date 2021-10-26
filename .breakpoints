@@ -1,3 +1,36 @@
 {
-  "files": {}
+  "files": {
+    "maze.c": [
+      {
+        "id": "42a25da3-a66f-4b0d-9eb4-fbc0b6085256",
+        "line": 100,
+        "version": 1396,
+        "index": 1766
+      },
+      {
+        "id": "3e2a37dc-c41b-4c9b-a318-cde943c4c220",
+        "line": 101,
+        "version": 1396,
+        "index": 1804
+      },
+      {
+        "id": "9dee1e14-8e0a-490e-912a-6b5578f28c45",
+        "line": 103,
+        "version": 1396,
+        "index": 1851
+      },
+      {
+        "id": "a2739b06-88c7-405f-97fb-7e14c18cef56",
+        "line": 105,
+        "version": 1396,
+        "index": 1874
+      },
+      {
+        "id": "15f7b5cc-c0ea-4d4a-9331-8df2fec908e7",
+        "line": 125,
+        "version": 1396,
+        "index": 2173
+      }
+    ]
+  }
 }

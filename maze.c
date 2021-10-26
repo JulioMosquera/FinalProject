@@ -53,11 +53,14 @@ char getche(void)
 
 int main(void)
 {
-  char input;
-  int startingLoc[2] = {0,0};
+  char input = ' ';
+  int currLoc[2] = {1,1};
+  int x,y;
+  x = currLoc[0];
+  y = currLoc[1];
   Player curPlayer;
-  curPlayer = initPlayer( startingLoc, 100, 0, 1);
-  PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
+  curPlayer = initPlayer( currLoc, 100, 0, 1);
+  //PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
   int randMaze = rand() %5;
   char currMaze[27][52] ;
 //for(int i = 0; i < 27; i++)
@@ -72,7 +75,9 @@ int main(void)
   
 
 
-while(1){
+while(1)
+{
+  system("clear");
   PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
 
 for(int i = 0; i < 27; i++){
@@ -96,18 +101,42 @@ for(int i = 0; i < 27; i++){
   printf("Use W/A/S/D to move, Q to Quit\n");
 
   input = getche();
-  system("clear");
-  if(input =='w'){
-    printf("move up");
+  
+  if(input =='w')
+  {
+    if(maze1[y - 1][x] != '#')
+    {
+      y--;
+      curPlayer.location[1] = y;
+    }
+    printf("move up\n");
   }
-  if(input =='a'){
-    printf("move left");
+  if(input =='a')
+  {
+    if(maze1[y][x - 1] != '#')
+    {
+      x--;
+      curPlayer.location[0] = x;
+    }
+    printf("move left\n");
   }
-  if(input =='s'){
-    printf("move down");
+  if(input =='s')
+  {
+    if(maze1[(y + 1)][x] != '#')
+    {
+      y++;
+      curPlayer.location[1] = y;
+    }
+    printf("move down\n");
   }
-  if(input =='d'){
-    printf("move right");
+  if(input =='d')
+  {
+    if(maze1[y][x + 1] != '#')
+    {
+      x++;
+      curPlayer.location[0] = x;
+    }
+    printf("move right\n");
   }
 
 }

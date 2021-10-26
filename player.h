@@ -13,4 +13,5 @@ Player initPlayer(int l[2], int ml, int s, int sm);
 Player moverplayer(Player p, int l[2]);
 Player updateScore(Player p, int s);
 Player addMultipler(Player p);
+
 #endif
