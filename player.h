@@ -1,0 +1,7 @@
+#ifdef FINALPROJECT_PLAYER_STRUCT
+#define FINALPROJECT_PLAYER_STRUCT
+
+typedef struct Player
+{
+
+}

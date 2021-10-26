@@ -2,6 +2,7 @@
 #include <string.h>
 
 #include "ascii_Arts&Mazes.c"
+#include "player.h"
 
 
 int main(void)
