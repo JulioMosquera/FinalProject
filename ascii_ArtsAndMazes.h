@@ -152,12 +152,12 @@ char maze5[27][52]={
 
 void PrintScoreboard(int score, int multiplier, int moves, int locX, int locY) {
   printf(" ------------------------------------------------------\n");
-  printf("|                    SCOREBOARD                        |\n");
-  printf("|------------------------------------------------------|\n");
-  printf("| Score      |    %i    |  Location X   |     %i       |\n", score, locX);
-  printf("|------------------------------------------------------|\n");
-  printf("| Multiplier |    %i    |  Location Y   |     %i       |\n", multiplier, locY);
-  printf("|------------------------------------------------------|\n");
-  printf("| Moves Left |    %i    |                              |\n", moves);
-  printf(" ------------------------------------------------------\n");
+  printf("|                    SCOREBOARD                         |\n");
+  printf("|-------------------------------------------------------|\n");
+  printf("| Score      |    \t%i    |  Location X   |     \t%i\t  \t|\n", score, locX);
+  printf("|-------------------------------------------------------|\n");
+  printf("| Multiplier |    \t%i    |  Location Y   |     \t%i\t    |\n", multiplier, locY);
+  printf("|-------------------------------------------------------|\n");
+  printf("| Moves Left |    \t%i    |                       \t    |\n", moves);
+  printf(" -------------------------------------------------------\n");
 }
