@@ -33,3 +33,17 @@ Player addMultipler(Player p)
   p.scoreMultipler += 1;
   return p;
 }
+
+int gameOver(Player p)
+{
+  if(p.movesLeft < 0)
+  {
+    int restart[2] = {1,1};
+    initPlayer(restart ,200, 0, 1);
+    return 0;
+  }
+  else
+  {
+    return 1;
+  }
+}
