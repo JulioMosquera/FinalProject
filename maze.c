@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "ascii_ArtsAndMazes.h"
 #include "player.h"
+#include "mainScreen.c"
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -18,7 +19,9 @@ int main(void)
   int startingLoc[2] = {0,0};
   Player curPlayer;
   curPlayer = initPlayer( startingLoc, 100, 0, 1);
+  PrintMainScreen();
   PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
+  
 
 for(int i = 0; i < 27; i++){
  for(int j = 0; j < 52; j++){
