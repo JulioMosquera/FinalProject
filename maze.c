@@ -2,9 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 #include <termios.h>
-
+#include <time.h>
+#include "repeatedFunctions.h"
 #include "ascii_ArtsAndMazes.h"
 #include "player.h"
+
+
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -14,6 +17,8 @@
 #define KMAG  "\x1B[35m"
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
+
+
 
 static struct termios old, current;
 void initTermios(int echo)
@@ -56,17 +61,15 @@ int main(void)
   char input = ' ';
   char start = ' ';
   int currLoc[2] = {1,1};
-  int x,y;
+  int x,y,t;
   x = currLoc[0];
   y = currLoc[1];
   Player curPlayer;
   curPlayer = initPlayer( currLoc, 200, 0, 1);
+  srand((int)time(0));
   int randMaze = rand() %5;
-  char currMaze[27][52] ;
-  for(int i = 0; i < 27; i++)
-  {
-    strcpy(currMaze[i], maze1[i]);
-  }
+  char currMaze[27][52];
+  strcpy(currMaze, mazes[randMaze]);
   
 
   PrintMainScreen();
@@ -74,37 +77,9 @@ int main(void)
   {
     start = getche();
   }
+  
+  
 
-  for(int i = 0; i < 27; i++)
-  {
-    strcpy(currMaze[i], mazes[randMaze][i]);
-  }
-  for(int i = 0; i < 27; i++)
-    {
-      for(int j = 0; j < 52; j++)
-      {
-      if(maze1[i][j] == '#')
-      {
-        printf(KRED"#");
-      }
-      else if(maze1[i][j] == '&') 
-      {
-        printf(KGRN"%c",maze1[i][j]);
-      }
-      else if(maze1[i][j] == ' ')
-      {
-        printf(KBLU"~");
-      }
-      else if(maze1[i][j] == 'X')
-      {
-        printf(KGRN"%c",maze1[i][j]);
-      }
-      else
-      {
-        printf(KWHT"%c",maze1[i][j]);
-      }
-      }
-      }
 
   while(1)
   {

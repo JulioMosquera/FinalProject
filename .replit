@@ -1,2 +1,2 @@
 language = "c"
-run = "gcc maze.c player.c ;./a.out"
+run = "gcc maze.c player.c repeatedFunctions.c ;./a.out"
