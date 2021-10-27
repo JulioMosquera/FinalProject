@@ -47,3 +47,61 @@ int gameOver(Player p)
     return 1;
   }
 }
+Player CheckNextCharX(char curMaze[27][52], int i, Player p)
+{
+  Player newPlayer = p;
+  int x = newPlayer.location[0];
+  int y = newPlayer.location[1];
+  if( i == 1)
+  {
+    if(curMaze[y][x + 1] != '#')
+    {
+      curMaze[y][x] = ' ';
+      x++;
+      newPlayer.location[0] = x;
+      curMaze[y][x] = '&';
+      newPlayer.movesLeft--;
+    }
+  }
+  if( i == 0)
+  {
+    if(curMaze[y][x - 1] != '#')
+    {
+      curMaze[y][x] = ' ';
+      x--;
+      newPlayer.location[0] = x;
+      curMaze[y][x] = '&';
+      newPlayer.movesLeft--;
+    }
+  }
+  return newPlayer;
+}
+Player CheckNextCharY(char curMaze[27][52], int i, Player p)
+{
+  Player newPlayer = p;
+  int x = newPlayer.location[0];
+  int y = newPlayer.location[1];
+  if( i == 1)
+  {
+    if(curMaze[y + 1][x] != '#')
+    {
+      curMaze[y][x] = ' ';
+      y++;
+      newPlayer.location[1] = y;
+      curMaze[y][x] = '&';
+      newPlayer.movesLeft--;
+    }
+  }
+  if( i == 0)
+  {
+    if(curMaze[y - 1][x] != '#')
+    {
+      curMaze[y][x] = ' ';
+      y--;
+      newPlayer.location[1] = y;
+      curMaze[y][x] = '&';
+      newPlayer.movesLeft--;
+    }
+  }
+  return newPlayer;
+}

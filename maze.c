@@ -59,16 +59,22 @@ int main(void)
   char input = ' ';
   char start = ' ';
   int currLoc[2] = {1,1};
-  int x,y,t;
+  int x,y, xNext, yNext;
   x = currLoc[0];
   y = currLoc[1];
   Player curPlayer;
   curPlayer = initPlayer( currLoc, 200, 0, 1);
-  srand((int)time(0));
+  srand(1);
   int randMaze = rand() %5;
   char currMaze[27][52];
-  strcpy(*currMaze, *mazes[randMaze]);
-  
+  //strcpy(currMaze, mazes[randMaze]);
+  for(int i = 0; i< 27; i++)
+  {
+    for(int j = 0; j < 52; j++)
+    {
+      currMaze[i][j] = mazes[randMaze][i][j];
+    }
+  }
 
   PrintMainScreen();
   while(start != 'e')
@@ -85,90 +91,100 @@ int main(void)
     printf("\033[H\033[J");
     PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
 
-    PrintCurMap(currMaze);
-    //for(int i = 0; i < 27; i++)
-    //{
-      //for(int j = 0; j < 52; j++)
-      //{
-      //if(maze1[i][j] == '#')
-      //{
-      //  printf(KRED"#");
-      //}
-      //else if(maze1[i][j] == '&') 
-      //{
-      //  printf(KGRN"%c",maze1[i][j]);
-      //}
-      //else if(maze1[i][j] == ' ')
-      //{
-      //  printf(KBLU"~");
-     // }
-      //else if(maze1[i][j] == 'X')
-      //{
-      //  printf(KGRN"%c",maze1[i][j]);
-      //}
-      //else
-      //{
-      //  printf(KWHT"%c",maze1[i][j]);
-      //}
-      //}
-      //}
+    //PrintCurMap(currMaze);
+    //curPlayer = CheckNextChar(currMaze, input, curPlayer);
+    for(int i = 0; i < 27; i++)
+    {
+      for(int j = 0; j < 52; j++)
+      {
+      if(currMaze[i][j] == '#')
+      {
+        printf(KRED"#");
+      }
+      else if(currMaze[i][j] == '&') 
+      {
+        printf(KGRN"%c",currMaze[i][j]);
+      }
+      else if(currMaze[i][j] == ' ')
+      {
+        printf(KBLU"~");
+      }
+      else if(currMaze[i][j] == 'X')
+      {
+        printf(KGRN"%c",currMaze[i][j]);
+      }
+      else
+      {
+        printf(KWHT"%c",currMaze[i][j]);
+      }
+      }
+    }
       printf("\nYou typed: %c\n", input);
       printf("Use W/A/S/D to move, Q to Quit\n");
 
       input = getche();
+      
+        if(input =='w')
+  {
+    yNext = 0;
+    curPlayer = CheckNextCharY(currMaze, yNext, curPlayer);
+    //if(currMaze[y - 1][x] != '#')
+    //{
+    //  currMaze[y][x] = ' ';
+    //  y--;
+    //  curPlayer.location[1] = y;
+    //  currMaze[y][x] = '&';
+    //  curPlayer.movesLeft--;
   
-    if(input =='w')
-    {
-      if(maze1[y - 1][x] != '#')
-      {
-        maze1[y][x] = ' ';
-        y--;
-        curPlayer.location[1] = y;
-        maze1[y][x] = '&';
-        curPlayer.movesLeft--;
-  
-      }
-      printf("move up\n");
-    }
-    if(input =='a')
-    {
-      if(maze1[y][x - 1] != '#')
-      {
-        maze1[y][x] = ' ';
-        x--;
-        curPlayer.location[0] = x;
-        maze1[y][x] = '&';
-        curPlayer.movesLeft--;
+    //}
+    printf("move up\n");
+  }
+  if(input =='a')
+  {
+    xNext = 0;
+    curPlayer = CheckNextCharX(currMaze, xNext, curPlayer);
+    //if(currMaze[y][x - 1] != '#')
+    //{ 
+    // currMaze[y][x] = ' ';
+    //  x--;
+    //  curPlayer.location[0] = x;
+    //  currMaze[y][x] = '&';
+    //  curPlayer.movesLeft--;
     
-      }
-      printf("move left\n");
-    }
-    if(input =='s')
-    {
-      if(maze1[(y + 1)][x] != '#')
-      {
-        maze1[y][x] = ' ';
-        y++;
-        curPlayer.location[1] = y;
-        maze1[y][x] = '&';
-        curPlayer.movesLeft--;
+    //}
+    printf("move left\n");
+  }
+  if(input =='s')
+  {
+    yNext = 1;
+    curPlayer = CheckNextCharY(currMaze, yNext, curPlayer);
+    //if(currMaze[(y + 1)][x] != '#')
+    //{
+    //  currMaze[y][x] = ' ';
+    //  y++;
+    //  curPlayer.location[1] = y;
+    //  currMaze[y][x] = '&';
+    //  curPlayer.movesLeft--;
       
-      }
-      printf("move down\n");
-    }
-    if(input =='d')
-    {
-      if(maze1[y][x + 1] != '#')
-      {
-        maze1[y][x] = ' ';
-        x++;
-        curPlayer.location[0] = x;
-        maze1[y][x] = '&';
-        curPlayer.movesLeft--;
+    //}
+    printf("move down\n");
+  }
+  if(input =='d')
+  {
+    xNext = 1;
+    curPlayer = CheckNextCharX(currMaze, xNext, curPlayer);
+    //if(currMaze[y][x + 1] != '#')
+    //{
+    //  currMaze[y][x] = ' ';
+    //  x++;
+    //  curPlayer.location[0] = x;
+    //  currMaze[y][x] = '&';
+    //  curPlayer.movesLeft--;
       
-      }
-      printf("move right\n");
-    }
+    //}
+    printf("move right\n");
+  }
+    
     if(gameOver(curPlayer) == 0)
     {
       //system("clear");
@@ -181,8 +197,8 @@ int main(void)
     }
     if(input == 'r' || input == 'q')
     {
-      maze1[1][1] = '&';
-      maze1[y][x] = ' ';
+      currMaze[1][1] = '&';
+      currMaze[y][x] = ' ';
       x = 1;
       y = 1;
       curPlayer.location[0] = x;

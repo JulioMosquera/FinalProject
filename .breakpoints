@@ -1,3 +1,50 @@
 {
-  "files": {}
+  "files": {
+    "maze.c": [
+      {
+        "id": "8fbf0ab1-d04d-4bfb-8a65-3a429b7ed78f",
+        "line": 64,
+        "version": 3222,
+        "index": 1010
+      },
+      {
+        "id": "1fac1db7-f258-475d-b289-7b3eb933a07c",
+        "line": 65,
+        "version": 3222,
+        "index": 1028
+      },
+      {
+        "id": "c9027826-636f-4cdf-90e5-404ade847d84",
+        "line": 79,
+        "version": 3332,
+        "index": 1327
+      },
+      {
+        "id": "3d617895-92e8-4d29-8830-bd3d2f2a399c",
+        "line": 125,
+        "version": 3019,
+        "index": 2298
+      },
+      {
+        "id": "f77134f7-2295-43bb-848c-b5bc47396e16",
+        "line": 126,
+        "version": 3019,
+        "index": 2322
+      }
+    ],
+    "player.c": [
+      {
+        "id": "7861ad58-ebeb-4dd0-bcaf-1584bf6e3e9a",
+        "line": 52,
+        "version": 889,
+        "index": 842
+      },
+      {
+        "id": "92aa4ea6-0b18-4517-9518-5627b5c7d634",
+        "line": 53,
+        "version": 888,
+        "index": 866
+      }
+    ]
+  }
 }
