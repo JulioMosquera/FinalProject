@@ -119,29 +119,29 @@ int main(void)
 
       input = getche();
       
-        if(input =='w')
+  if(input =='w')
   {
     yNext = 0;
-    curPlayer = CheckNextCharY(currMaze, yNext, curPlayer);
+    curPlayer = CheckNextCharY(currMaze, mazes[randMaze], yNext, curPlayer);
     printf("move up\n");
   }
   if(input =='a')
   {
     xNext = 0;
-    curPlayer = CheckNextCharX(currMaze, xNext, curPlayer);
+    curPlayer = CheckNextCharX(currMaze, mazes[randMaze], xNext, curPlayer);
 
     printf("move left\n");
   }
   if(input =='s')
   {
     yNext = 1;
-    curPlayer = CheckNextCharY(currMaze, yNext, curPlayer);
+    curPlayer = CheckNextCharY(currMaze, mazes[randMaze], yNext, curPlayer);
     printf("move down\n");
   }
   if(input =='d')
   {
     xNext = 1;
-    curPlayer = CheckNextCharX(currMaze, xNext, curPlayer);
+    curPlayer = CheckNextCharX(currMaze, mazes[randMaze], xNext, curPlayer);
     printf("move right\n");
   }
     
@@ -151,14 +151,19 @@ int main(void)
       PrintGameOver();
       while(input != 'r')
       {
-      
+        input = getche();
       }
+      curPlayer = initPlayer( currLoc, 200, 0, 1);
     }
-    if(youWon(curPlayer) == 1)
+    if(youWon(curPlayer) == 0)
     {
       printf("\033[H\033[J");  
       PrintWin();
-      if(input == 'e')
+      while( input != 'e')
+      {
+        input = getche();
+      }
+        if(input == 'e')
       {
         randMaze = rand() %5;
         for(int i = 0; i< 27; i++)
@@ -169,6 +174,8 @@ int main(void)
           }
         }
       }
+      curPlayer = initPlayer( currLoc, 200, 0, 1);
+    
     }
     if(input == 'r' || input == 'q')
     {

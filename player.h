@@ -15,6 +15,6 @@ Player updateScore(Player p, int s);
 Player addMultipler(Player p);
 int gameOver(Player p);
 int youWon(Player p);
-Player CheckNextCharX(char curMaze[27][52], int i, Player p);
-Player CheckNextCharY(char curMaze[27][52], int i, Player p);
+Player CheckNextCharX(char curMaze[27][52], char origMaze[27][52], int i, Player p);
+Player CheckNextCharY(char curMaze[27][52], char origMaze[27][52], int i, Player p);
 #endif

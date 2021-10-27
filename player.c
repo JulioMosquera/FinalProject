@@ -51,18 +51,18 @@ int gameOver(Player p)
 int youWon(Player p)
 {
   Player newPlayer = p;
-  if(newPlayer.location[1] == 27 && newPlayer.location[0] == 57)
+  if(newPlayer.location[1] == 25 && newPlayer.location[0] == 49)
   {
-    return 1;
+    return 0;
   }
   else
   {
-    return 0;
+    return 1;
   }
   
 }
 
-Player CheckNextCharX(char curMaze[27][52], int i, Player p)
+Player CheckNextCharX(char curMaze[27][52], char origMaze[27][52], int i, Player p)
 {
   Player newPlayer = p;
   int x = newPlayer.location[0];
@@ -76,34 +76,31 @@ Player CheckNextCharX(char curMaze[27][52], int i, Player p)
       newPlayer.location[0] = x;
       curMaze[y][x] = '&';
       newPlayer.movesLeft--;
-      if(curMaze[y][x + 1] == '.')
+      if(origMaze[y][x] == '.')
       {
         newPlayer = updateScore(newPlayer, 5);
       }
-      else if(curMaze[y][x + 1] == '*')
+      else if(origMaze[y][x] == '*')
       {
         newPlayer = updateScore(newPlayer, 10);
       }
-      else if(curMaze[y][x + 1] == '!')
+      else if(origMaze[y][x] == '!')
       {
         newPlayer = updateScore(newPlayer, 15);
       }
-      else if(curMaze[y][x + 1] == '$')
+      else if(origMaze[y][x] == '$')
       {
         newPlayer = addMultipler(newPlayer);
       }
-      else if(curMaze[y][x + 1] == '+')
+      else if(origMaze[y][x] == '+')
       {
         newPlayer.movesLeft += 10;
       }
-      else if(curMaze[y][x + 1] == '-')
+      else if(origMaze[y][x] == '-')
       {
         newPlayer.movesLeft -= 10;
       }
-      else if(curMaze[y][x + 1] == 'X')
-      {
-        youWon(newPlayer);
-      }
+    }
   }
   if( i == 0)
   {
@@ -115,10 +112,34 @@ Player CheckNextCharX(char curMaze[27][52], int i, Player p)
       curMaze[y][x] = '&';
       newPlayer.movesLeft--;
     }
-  }
+    if(origMaze[y][x] == '.')
+      {
+        newPlayer = updateScore(newPlayer, 5);
+      }
+      else if(origMaze[y][x] == '*')
+      {
+        newPlayer = updateScore(newPlayer, 10);
+      }
+      else if(origMaze[y][x] == '!')
+      {
+        newPlayer = updateScore(newPlayer, 15);
+      }
+      else if(origMaze[y][x] == '$')
+      {
+        newPlayer = addMultipler(newPlayer);
+      }
+      else if(origMaze[y][x] == '+')
+      {
+        newPlayer.movesLeft += 10;
+      }
+      else if(origMaze[y][x] == '-')
+      {
+        newPlayer.movesLeft -= 10;
+      }
+    }
   return newPlayer;
 }
-Player CheckNextCharY(char curMaze[27][52], int i, Player p)
+Player CheckNextCharY(char curMaze[27][52], char origMaze[27][52], int i, Player p)
 {
   Player newPlayer = p;
   int x = newPlayer.location[0];
@@ -132,6 +153,30 @@ Player CheckNextCharY(char curMaze[27][52], int i, Player p)
       newPlayer.location[1] = y;
       curMaze[y][x] = '&';
       newPlayer.movesLeft--;
+      if(origMaze[y][x] == '.')
+      {
+        newPlayer = updateScore(newPlayer, 5);
+      }
+      else if(origMaze[y][x] == '*')
+      {
+        newPlayer = updateScore(newPlayer, 10);
+      }
+      else if(origMaze[y][x] == '!')
+      {
+        newPlayer = updateScore(newPlayer, 15);
+      }
+      else if(origMaze[y][x] == '$')
+      {
+        newPlayer = addMultipler(newPlayer);
+      }
+      else if(origMaze[y][x] == '+')
+      {
+        newPlayer.movesLeft += 10;
+      }
+      else if(origMaze[y][x] == '-')
+      {
+        newPlayer.movesLeft -= 10;
+      }
     }
   }
   if( i == 0)
@@ -143,7 +188,31 @@ Player CheckNextCharY(char curMaze[27][52], int i, Player p)
       newPlayer.location[1] = y;
       curMaze[y][x] = '&';
       newPlayer.movesLeft--;
-    }
+      if(origMaze[y][x] == '.')
+      {
+        newPlayer = updateScore(newPlayer, 5);
+      }
+      else if(origMaze[y][x] == '*')
+      {
+        newPlayer = updateScore(newPlayer, 10);
+      }
+      else if(origMaze[y][x] == '!')
+      {
+        newPlayer = updateScore(newPlayer, 15);
+      }
+      else if(origMaze[y][x] == '$')
+      {
+        newPlayer = addMultipler(newPlayer);
+      }
+      else if(origMaze[y][x] == '+')
+      {
+        newPlayer.movesLeft += 10;
+      }
+      else if(origMaze[y][x] == '-')
+      {
+        newPlayer.movesLeft -= 10;
+      }
+    }     
   }
-  return newPlayer;
+    return newPlayer;
 }
