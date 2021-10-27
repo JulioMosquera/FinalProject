@@ -47,6 +47,21 @@ int gameOver(Player p)
     return 1;
   }
 }
+
+int youWon(Player p)
+{
+  Player newPlayer = p;
+  if(newPlayer.location[1] == 27 && newPlayer.location[0] == 57)
+  {
+    return 1;
+  }
+  else
+  {
+    return 0;
+  }
+  
+}
+
 Player CheckNextCharX(char curMaze[27][52], int i, Player p)
 {
   Player newPlayer = p;
@@ -61,7 +76,34 @@ Player CheckNextCharX(char curMaze[27][52], int i, Player p)
       newPlayer.location[0] = x;
       curMaze[y][x] = '&';
       newPlayer.movesLeft--;
-    }
+      if(curMaze[y][x + 1] == '.')
+      {
+        newPlayer = updateScore(newPlayer, 5);
+      }
+      else if(curMaze[y][x + 1] == '*')
+      {
+        newPlayer = updateScore(newPlayer, 10);
+      }
+      else if(curMaze[y][x + 1] == '!')
+      {
+        newPlayer = updateScore(newPlayer, 15);
+      }
+      else if(curMaze[y][x + 1] == '$')
+      {
+        newPlayer = addMultipler(newPlayer);
+      }
+      else if(curMaze[y][x + 1] == '+')
+      {
+        newPlayer.movesLeft += 10;
+      }
+      else if(curMaze[y][x + 1] == '-')
+      {
+        newPlayer.movesLeft -= 10;
+      }
+      else if(curMaze[y][x + 1] == 'X')
+      {
+        youWon(newPlayer);
+      }
   }
   if( i == 0)
   {

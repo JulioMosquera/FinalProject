@@ -67,7 +67,6 @@ int main(void)
   srand(1);
   int randMaze = rand() %5;
   char currMaze[27][52];
-  //strcpy(currMaze, mazes[randMaze]);
   for(int i = 0; i< 27; i++)
   {
     for(int j = 0; j < 52; j++)
@@ -86,13 +85,9 @@ int main(void)
 
 
   while(1)
-  {
-    //system("clear");    
+  {    
     printf("\033[H\033[J");
     PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
-
-    //PrintCurMap(currMaze);
-    //curPlayer = CheckNextChar(currMaze, input, curPlayer);
     for(int i = 0; i < 27; i++)
     {
       for(int j = 0; j < 52; j++)
@@ -128,71 +123,51 @@ int main(void)
   {
     yNext = 0;
     curPlayer = CheckNextCharY(currMaze, yNext, curPlayer);
-    //if(currMaze[y - 1][x] != '#')
-    //{
-    //  currMaze[y][x] = ' ';
-    //  y--;
-    //  curPlayer.location[1] = y;
-    //  currMaze[y][x] = '&';
-    //  curPlayer.movesLeft--;
-  
-    //}
     printf("move up\n");
   }
   if(input =='a')
   {
     xNext = 0;
     curPlayer = CheckNextCharX(currMaze, xNext, curPlayer);
-    //if(currMaze[y][x - 1] != '#')
-    //{ 
-    // currMaze[y][x] = ' ';
-    //  x--;
-    //  curPlayer.location[0] = x;
-    //  currMaze[y][x] = '&';
-    //  curPlayer.movesLeft--;
-    
-    //}
+
     printf("move left\n");
   }
   if(input =='s')
   {
     yNext = 1;
     curPlayer = CheckNextCharY(currMaze, yNext, curPlayer);
-    //if(currMaze[(y + 1)][x] != '#')
-    //{
-    //  currMaze[y][x] = ' ';
-    //  y++;
-    //  curPlayer.location[1] = y;
-    //  currMaze[y][x] = '&';
-    //  curPlayer.movesLeft--;
-      
-    //}
     printf("move down\n");
   }
   if(input =='d')
   {
     xNext = 1;
     curPlayer = CheckNextCharX(currMaze, xNext, curPlayer);
-    //if(currMaze[y][x + 1] != '#')
-    //{
-    //  currMaze[y][x] = ' ';
-    //  x++;
-    //  curPlayer.location[0] = x;
-    //  currMaze[y][x] = '&';
-    //  curPlayer.movesLeft--;
-      
-    //}
     printf("move right\n");
   }
     
     if(gameOver(curPlayer) == 0)
     {
-      //system("clear");
       printf("\033[H\033[J");  
       PrintGameOver();
       while(input != 'r')
       {
       
+      }
+    }
+    if(youWon(curPlayer) == 1)
+    {
+      printf("\033[H\033[J");  
+      PrintWin();
+      if(input == 'e')
+      {
+        randMaze = rand() %5;
+        for(int i = 0; i< 27; i++)
+        {
+          for(int j = 0; j < 52; j++)
+          {
+            currMaze[i][j] = mazes[randMaze][i][j];
+          }
+        }
       }
     }
     if(input == 'r' || input == 'q')
@@ -204,7 +179,6 @@ int main(void)
       curPlayer.location[0] = x;
       curPlayer.location[1] = y;
       curPlayer.movesLeft = 200;
-      //system("clear");
       printf("\033[H\033[J");  
       PrintMainScreen();
       while(input != 'e')
