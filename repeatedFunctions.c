@@ -10,9 +10,65 @@
 #define KMAG  "\x1B[35m"
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
-void CheckNextChar(char input, int l[2])
-{
 
+void CheckNextChar(char curMaze[27][52], char input, int l[2], Player curPlayer)
+{
+  int x = curPlayer.location[0];
+  int y;
+  y = curPlayer.location[0];
+
+  if(input =='w')
+    {
+      if(curMaze[y - 1][x] != '#')
+      {
+        curMaze[y][x] = ' ';
+        y--;
+        curPlayer.location[1] = y;
+        curMaze[y][x] = '&';
+        curPlayer.movesLeft--;
+  
+      }
+      printf("move up\n");
+    }
+    if(input =='a')
+    {
+      if(curMaze[y][x - 1] != '#')
+      {
+        curMaze[y][x] = ' ';
+        x--;
+        curPlayer.location[0] = x;
+        curMaze[y][x] = '&';
+        curPlayer.movesLeft--;
+    
+      }
+      printf("move left\n");
+    }
+    if(input =='s')
+    {
+      if(curMaze[(y + 1)][x] != '#')
+      {
+        curMaze[y][x] = ' ';
+        y++;
+        curPlayer.location[1] = y;
+        curMaze[y][x] = '&';
+        curPlayer.movesLeft--;
+      
+      }
+      printf("move down\n");
+    }
+    if(input =='d')
+    {
+      if(curMaze[y][x + 1] != '#')
+      {
+        curMaze[y][x] = ' ';
+        x++;
+        curPlayer.location[0] = x;
+        curMaze[y][x] = '&';
+        curPlayer.movesLeft--;
+      
+      }
+      printf("move right\n");
+    }
 }
 void ChooseNewMap(char * newMaze)
 {
