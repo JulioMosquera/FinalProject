@@ -3,11 +3,10 @@
 #include <stdlib.h>
 #include <termios.h>
 #include <time.h>
+
 #include "repeatedFunctions.h"
 #include "ascii_ArtsAndMazes.h"
 #include "player.h"
-
-
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -17,7 +16,6 @@
 #define KMAG  "\x1B[35m"
 #define KCYN  "\x1B[36m"
 #define KWHT  "\x1B[37m"
-
 
 
 static struct termios old, current;
@@ -69,7 +67,7 @@ int main(void)
   srand((int)time(0));
   int randMaze = rand() %5;
   char currMaze[27][52];
-  strcpy(currMaze, mazes[randMaze]);
+  strcpy(*currMaze, *mazes[randMaze]);
   
 
   PrintMainScreen();
@@ -83,7 +81,6 @@ int main(void)
 
   while(1)
   {
-    //system("cls");
     system("clear");
     PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
 

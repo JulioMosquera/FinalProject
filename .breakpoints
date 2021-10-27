@@ -2,16 +2,28 @@
   "files": {
     "maze.c": [
       {
-        "id": "06f54056-7c3e-4fcf-8cc1-e724e50b90d8",
-        "line": 86,
-        "version": 2570,
-        "index": 1301
+        "id": "c093993e-5878-471b-9d8b-e07fa3f273ed",
+        "line": 63,
+        "version": 2611,
+        "index": 980
       },
       {
-        "id": "6548a04d-7285-4c4d-ba00-cd5d4b0995d4",
-        "line": 87,
-        "version": 2568,
-        "index": 1321
+        "id": "725a3ba7-c0d3-407f-9345-4e8de0538d5a",
+        "line": 64,
+        "version": 2611,
+        "index": 998
+      },
+      {
+        "id": "fd4a33d2-42bc-44da-b583-1526e9dc0dcc",
+        "line": 84,
+        "version": 2611,
+        "index": 1316
+      },
+      {
+        "id": "cc3a2b85-831a-4617-93c2-4d993d9a4144",
+        "line": 85,
+        "version": 2611,
+        "index": 1337
       }
     ]
   }
