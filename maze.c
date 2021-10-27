@@ -78,11 +78,12 @@ int main(void)
     start = getche();
   }
   
-  
+  system("clear");
 
 
   while(1)
   {
+    //system("cls");
     system("clear");
     PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
 
