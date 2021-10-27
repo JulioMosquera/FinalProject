@@ -11,6 +11,7 @@ Player initPlayer(int loc[2], int ml, int s, int sm)
     newPlayer.movesLeft = ml;
     newPlayer.score = 0;
     newPlayer.scoreMultipler = 1;
+    newPlayer.timeSpent = 0;
     return newPlayer;
 }
 

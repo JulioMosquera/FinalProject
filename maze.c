@@ -2,9 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <termios.h>
-
+#include <time.h>
 #include "ascii_ArtsAndMazes.h"
-#include "player.h"
+#include "player.h" 
 
 #define KNRM  "\x1B[0m"
 #define KRED  "\x1B[31m"
@@ -75,11 +75,16 @@ while(start != 'e')
   start = getche();
 }
 
-
+time_t begin = time(NULL);
+int timeSpent;
 while(1)
 {
   system("clear");
-  PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
+  time_t end = time(NULL);
+  curPlayer.timeSpent = end-begin;
+  // printf("The elapsed time is %d seconds", (curPlayer.timeSpent));
+
+  PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1],curPlayer.timeSpent);
 
   for(int i = 0; i < 27; i++)
   {
@@ -188,7 +193,7 @@ while(1)
     {
       input = getche();
     }
-    PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
+    PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1],timeSpent);
     
   }
 
