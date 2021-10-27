@@ -77,19 +77,23 @@ int main(void)
   }
 
   PrintMainScreen();
+
   while(start != 'e')
   {
     start = getche();
   }
   
   
-
+time_t begin = time(NULL);
+int timeSpent;
 
   while(1)
   {
     //system("clear");    
     printf("\033[H\033[J");
-    PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
+    time_t end = time(NULL);
+    curPlayer.timeSpent = end-begin;
+    PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1], curPlayer.timeSpent);
 
     //PrintCurMap(currMaze);
     //curPlayer = CheckNextChar(currMaze, input, curPlayer);
@@ -211,7 +215,7 @@ int main(void)
       {
         input = getche();
       }
-      PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
+      PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1], curPlayer.timeSpent);
     
     }
 
