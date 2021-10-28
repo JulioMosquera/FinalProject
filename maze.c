@@ -64,7 +64,7 @@ int main(void)
   y = currLoc[1];
   Player curPlayer;
   curPlayer = initPlayer( currLoc, 200, 0, 1);
-  srand((int)time);
+  srand((int)time(0));
   int randMaze = rand() %20;
   char currMaze[27][52];
   for(int i = 0; i< 27; i++)
@@ -80,7 +80,13 @@ int main(void)
   {
     start = getche();
   }
-  
+  start = ' ';
+  printf("\033[H\033[J");
+  PrintInfoScreen();
+  while(start != 'e')
+  {
+    start = getche();
+  }
   
   time_t begin = time(NULL);
   int timeSpent;
@@ -154,9 +160,16 @@ int main(void)
     }
     if(input == 'r' || input == 'q')
     {
-    
-      currMaze[1][1] = '&';
-      currMaze[curPlayer.location[1]][curPlayer.location[0]] = ' ';
+      randMaze = rand() %20;
+      //currMaze[1][1] = '&';
+      //currMaze[curPlayer.location[1]][curPlayer.location[0]] = ' ';
+      for(int i = 0; i< 27; i++)
+      {
+        for(int j = 0; j < 52; j++)
+        {
+          currMaze[i][j] = mazes[randMaze][i][j];
+        }
+      }
       x = 1;
       y = 1;
       curPlayer.location[0] = x;

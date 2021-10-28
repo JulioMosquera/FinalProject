@@ -144,3 +144,16 @@ void PrintWin()
   printf("    \\|____________|\\|__|\\|__| \\|__| \n");
   printf("\t Press 'E' to play a new maze!\n");
 }
+
+void PrintInfoScreen()
+{
+  printf("\t\tWelcome to Minotaur\n");
+  printf("This is a game where you(&) have to escape a labyrinth \n");
+  printf("that has a Minotaur trapped inside.\n");
+  printf("You only have 200 moves to escape the labyrinth.\n");
+  printf("Use 'W/A/S/D' to move to the exit(X). \n");
+  printf("Collect power ups './*/!/$/+/-' to get a  \nhigher score and adjust moves left.\n");
+  printf("But be careful because once you pass over the traps the \n");
+  printf("warnings will disappear, but the traps wont!\n");
+  printf("\n\t\tPress 'E' to start\n");
+}
