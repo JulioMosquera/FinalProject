@@ -45,7 +45,7 @@ void PrintCurMap(char curMaze[27][52])
       }
     }
 }
-void PrintScoreboard(int score, int multiplier, int moves, int locX, int locY) {
+void PrintScoreboard(int score, int multiplier, int moves, int locX, int locY, int timeSpent) {
   printf(" ------------------------------------------------------\n");
   printf("|                    SCOREBOARD                         |\n");
   printf("|-------------------------------------------------------|\n");
@@ -53,7 +53,7 @@ void PrintScoreboard(int score, int multiplier, int moves, int locX, int locY) {
   printf("|-------------------------------------------------------|\n");
   printf("| Multiplier |  \t%i\t     |  Location Y   |   \t%i\t|\n", multiplier, locY);
   printf("|-------------------------------------------------------|\n");
-  printf("| Moves Left |  \t%i\t     |                    \t    |\n", moves);
+  printf("| Moves Left |  \t%i\t     |  Time(s)      |    \t%i\t|\n", moves,timeSpent);
   printf(" -------------------------------------------------------\n");
 }
 

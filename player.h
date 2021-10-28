@@ -7,6 +7,7 @@ typedef struct Player_Struct
   int movesLeft;
   int score;
   int scoreMultipler;
+  int timeSpent;
 } Player;
 
 Player initPlayer(int l[2], int ml, int s, int sm);

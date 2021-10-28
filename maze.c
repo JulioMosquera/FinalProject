@@ -82,12 +82,15 @@ int main(void)
   }
   
   
-
+  time_t begin = time(NULL);
+  int timeSpent;
 
   while(1)
   {    
     printf("\033[H\033[J");
-    PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
+    time_t end = time(NULL);
+    curPlayer.timeSpent = end-begin;
+    PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1],curPlayer.timeSpent);
     for(int i = 0; i < 27; i++)
     {
       for(int j = 0; j < 52; j++)
@@ -192,7 +195,7 @@ int main(void)
       {
         input = getche();
       }
-      PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1]);
+      PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1],curPlayer.timeSpent);
     
     }
 
