@@ -53,7 +53,7 @@ void PrintScoreboard(int score, int multiplier, int moves, int locX, int locY, i
   printf("|-------------------------------------------------------|\n");
   printf("| Multiplier |  \t%i\t     |  Location Y   |   \t%i\t|\n", multiplier, locY);
   printf("|-------------------------------------------------------|\n");
-  printf("| Moves Left |  \t%i\t     |  Time(s)      |    \t%i\t|\n", moves,timeSpent);
+  printf("| Moves Left |  \t%i\t     |  Time(s)      |    \t%is\t|\n", moves,timeSpent);
   printf(" -------------------------------------------------------\n");
 }
 
