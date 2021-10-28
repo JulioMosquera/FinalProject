@@ -1,20 +1,3 @@
 {
-  "files": {
-    "maze.c": [
-      {
-        "id": "7462eb9b-557a-4c0f-8e29-7e045e7d1b25",
-        "line": 177,
-        "version": 5,
-        "index": 3435
-      }
-    ],
-    "player.c": [
-      {
-        "id": "8de9bfe8-2dfb-466f-a3c5-589ea3d69e9c",
-        "line": 51,
-        "version": 1,
-        "index": 778
-      }
-    ]
-  }
+  "files": {}
 }

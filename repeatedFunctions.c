@@ -57,6 +57,39 @@ void PrintScoreboard(int score, int multiplier, int moves, int locX, int locY, i
   printf(" -------------------------------------------------------\n");
 }
 
+void PrintMaze(char curMaze[27][52], char input)
+{
+      for(int i = 0; i < 27; i++)
+    {
+      for(int j = 0; j < 52; j++)
+      {
+      if(curMaze[i][j] == '#')
+      {
+        printf(KRED"#");
+      }
+      else if(curMaze[i][j] == '&') 
+      {
+        printf(KGRN"%c",curMaze[i][j]);
+      }
+      else if(curMaze[i][j] == ' ')
+      {
+        printf(KBLU"~");
+      }
+      else if(curMaze[i][j] == 'X')
+      {
+        printf(KGRN"%c",curMaze[i][j]);
+      }
+      else
+      {
+        printf(KWHT"%c",curMaze[i][j]);
+      }
+      }
+    }
+      printf("\nYou typed: %c\n", input);
+      printf("Use W/A/S/D to move, Q to Quit\n");
+
+}
+
 void PrintMainScreen() {
   printf(" _____ ______   ___  ________   ________  _________  ________  ___  ___  ________     \n");
   printf("|\\   _ \\  _   \\|\\  \\|\\   ___  \\|\\   __  \\|\\___   ___\\\\   __  \\|\\  \\|\\  \\|\\   __  \\    \n");

@@ -64,8 +64,8 @@ int main(void)
   y = currLoc[1];
   Player curPlayer;
   curPlayer = initPlayer( currLoc, 200, 0, 1);
-  srand(1);
-  int randMaze = rand() %5;
+  srand((int)time);
+  int randMaze = rand() %20;
   char currMaze[27][52];
   for(int i = 0; i< 27; i++)
   {
@@ -91,36 +91,8 @@ int main(void)
     time_t end = time(NULL);
     curPlayer.timeSpent = end-begin;
     PrintScoreboard(curPlayer.score, curPlayer.scoreMultipler, curPlayer.movesLeft, curPlayer.location[0], curPlayer.location[1],curPlayer.timeSpent);
-    for(int i = 0; i < 27; i++)
-    {
-      for(int j = 0; j < 52; j++)
-      {
-      if(currMaze[i][j] == '#')
-      {
-        printf(KRED"#");
-      }
-      else if(currMaze[i][j] == '&') 
-      {
-        printf(KGRN"%c",currMaze[i][j]);
-      }
-      else if(currMaze[i][j] == ' ')
-      {
-        printf(KBLU"~");
-      }
-      else if(currMaze[i][j] == 'X')
-      {
-        printf(KGRN"%c",currMaze[i][j]);
-      }
-      else
-      {
-        printf(KWHT"%c",currMaze[i][j]);
-      }
-      }
-    }
-      printf("\nYou typed: %c\n", input);
-      printf("Use W/A/S/D to move, Q to Quit\n");
-
-      input = getche();
+    PrintMaze(currMaze, input);
+    input = getche();
       
   if(input =='w')
   {
@@ -182,8 +154,9 @@ int main(void)
     }
     if(input == 'r' || input == 'q')
     {
+    
       currMaze[1][1] = '&';
-      currMaze[y][x] = ' ';
+      currMaze[curPlayer.location[1]][curPlayer.location[0]] = ' ';
       x = 1;
       y = 1;
       curPlayer.location[0] = x;
