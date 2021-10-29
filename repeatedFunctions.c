@@ -12,39 +12,6 @@
 #define KWHT  "\x1B[37m"
 
 
-void ChooseNewMap(char * newMaze)
-{
-  
-}
-void PrintCurMap(char curMaze[27][52])
-{
-    for(int i = 0; i < 27; i++)
-    {
-      for(int j = 0; j < 52; j++)
-      {
-      if(curMaze[i][j] == '#')
-      {
-        printf(KRED"#");
-      }
-      else if(curMaze[i][j] == '&') 
-      {
-        printf(KGRN"%c",curMaze[i][j]);
-      }
-      else if(curMaze[i][j] == ' ')
-      {
-        printf(KBLU"~");
-      }
-      else if(curMaze[i][j] == 'X')
-      {
-        printf(KGRN"%c",curMaze[i][j]);
-      }
-      else
-      {
-        printf(KWHT"%c",curMaze[i][j]);
-      }
-      }
-    }
-}
 //Print scoreboard with info of current game
 void PrintScoreboard(int score, int multiplier, int moves, int locX, int locY, int timeSpent) {
   printf(" ------------------------------------------------------\n");
@@ -57,7 +24,7 @@ void PrintScoreboard(int score, int multiplier, int moves, int locX, int locY, i
   printf("| Moves Left |  \t%i\t     |  Time(s)      |    \t%is\t|\n", moves,timeSpent);
   printf(" -------------------------------------------------------\n");
 }
-
+//Print the selected maze
 void PrintMaze(char curMaze[27][52], char input)
 {
       for(int i = 0; i < 27; i++)
@@ -165,7 +132,7 @@ void PrintWin()
   printf("    \\|____________|\\|__|\\|__| \\|__| \n");
   printf("\t Press 'E' to play a new maze!\n");
 }
-
+//Print info telling the player the rules of the game
 void PrintInfoScreen()
 {
   printf("\t\tWelcome to Minotaur\n");
