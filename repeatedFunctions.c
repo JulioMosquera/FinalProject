@@ -45,6 +45,7 @@ void PrintCurMap(char curMaze[27][52])
       }
     }
 }
+//Print scoreboard with info of current game
 void PrintScoreboard(int score, int multiplier, int moves, int locX, int locY, int timeSpent) {
   printf(" ------------------------------------------------------\n");
   printf("|                    SCOREBOARD                         |\n");
@@ -109,7 +110,7 @@ void PrintMaze(char curMaze[27][52], char input)
       printf("Use W/A/S/D to move, Q to Quit\n");
 
 }
-
+//Print main title screen at the start of the game
 void PrintMainScreen() {
   printf(" _____ ______   ___  ________   ________  _________  ________  ___  ___  ________     \n");
   printf("|\\   _ \\  _   \\|\\  \\|\\   ___  \\|\\   __  \\|\\___   ___\\\\   __  \\|\\  \\|\\  \\|\\   __  \\    \n");
@@ -123,7 +124,7 @@ void PrintMainScreen() {
 
 }
 
-
+//Print GAME OVER in ASCII art when player runs out of moves
 void PrintGameOver()
 {
     printf(" ________  ________  _____ ______   _______ \n");
@@ -143,7 +144,7 @@ void PrintGameOver()
   printf("    \\|_______|\\|__|/       \\|_______|\\|__|\\|__|\n");
   printf("\t\t\t\t\t Press 'R' to try again!\n");
 }
-
+//Print YOU WIN in ASCII art when player reaches end
 void PrintWin()
 {
   printf("  ___    ___ ________  ___  ___     \n");
