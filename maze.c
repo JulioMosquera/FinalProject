@@ -19,7 +19,7 @@
 
 
 static struct termios old, current;
-void initTermios(int echo)
+void initTermios(int echo)      //Found code for the getche command
 {
  tcgetattr(0, &old);
  current = old;
@@ -56,42 +56,42 @@ char getche(void)
 
 int main(void)
 {
-  char input = ' ';
-  char start = ' ';
-  int currLoc[2] = {1,1};
+  char input = ' ';           //Initalizing needed variables
+  char start = ' ';           //Set a start/stop variable
+  int currLoc[2] = {1,1}; //set current location
   int x,y, xNext, yNext;
   x = currLoc[0];
   y = currLoc[1];
   Player curPlayer;
   curPlayer = initPlayer( currLoc, 200, 0, 1);
   srand((int)time(0));
-  int randMaze = rand() %20;
-  char currMaze[27][52];
-  for(int i = 0; i< 27; i++)
-  {
+  int randMaze = rand() %20;  //set a random variable to pick a random map
+  char currMaze[27][52];  
+  for(int i = 0; i< 27; i++)    //copies randomly chosen map to currently used map
+  {           
     for(int j = 0; j < 52; j++)
     {
       currMaze[i][j] = mazes[randMaze][i][j];
     }
   }
 
-  PrintMainScreen();
-  while(start != 'e')
+  PrintMainScreen();    
+  while(start != 'e')     //Waits on the Title Screen until 'E' is pressed
   {
     start = getche();
   }
   start = ' ';
-  printf("\033[H\033[J");
-  PrintInfoScreen();
-  while(start != 'e')
+  printf("\033[H\033[J"); //clears the consol
+  PrintInfoScreen();    //Prints an infomation screen on how to play the game
+  while(start != 'e')   //Waits on until 'E' is pressed
   {
     start = getche();
   }
   
-  time_t begin = time(NULL);
+  time_t begin = time(NULL); //Starts a timer for time playing 
   int timeSpent;
 
-  while(1)
+  while(1)        //Start a kind of kernal to play the game in a loop
   {    
     printf("\033[H\033[J");
     time_t end = time(NULL);
@@ -100,34 +100,34 @@ int main(void)
     PrintMaze(currMaze, input);
     input = getche();
       
-  if(input =='w')
+  if(input =='w')   //Checks the key press
   {
     yNext = 0;
     curPlayer = CheckNextCharY(currMaze, mazes[randMaze], yNext, curPlayer);
     printf("move up\n");
   }
-  if(input =='a')
+  if(input =='a')   //Checks the key press
   {
     xNext = 0;
     curPlayer = CheckNextCharX(currMaze, mazes[randMaze], xNext, curPlayer);
 
     printf("move left\n");
   }
-  if(input =='s')
+  if(input =='s')   //Checks the key press
   {
     yNext = 1;
     curPlayer = CheckNextCharY(currMaze, mazes[randMaze], yNext, curPlayer);
     printf("move down\n");
   }
-  if(input =='d')
+  if(input =='d')   //Checks the key press
   {
     xNext = 1;
     curPlayer = CheckNextCharX(currMaze, mazes[randMaze], xNext, curPlayer);
     printf("move right\n");
   }
     
-    if(gameOver(curPlayer) == 0)
-    {
+    if(gameOver(curPlayer) == 0)  //Checks to see if the player is out of moevs
+    {                             //and prints a Game Over screen and wait for input
       printf("\033[H\033[J");  
       PrintGameOver();
       while(input != 'r')
@@ -136,8 +136,8 @@ int main(void)
       }
       curPlayer = initPlayer( currLoc, 200, 0, 1);
     }
-    if(youWon(curPlayer) == 0)
-    {
+    if(youWon(curPlayer) == 0)    //Checks to see if the player has made it to the end
+    {                             //and prints You Won if 'true' and waits for input
       printf("\033[H\033[J");  
       PrintWin();
       while( input != 'e')
@@ -158,26 +158,25 @@ int main(void)
       curPlayer = initPlayer( currLoc, 200, 0, 1);
     
     }
-    if(input == 'r' || input == 'q')
-    {
-      randMaze = rand() %20;
-      //currMaze[1][1] = '&';
-      //currMaze[curPlayer.location[1]][curPlayer.location[0]] = ' ';
+    if(input == 'r' || input == 'q')   //Checks to see if the player wants to 
+    {                                  //quit/restart the game
+      randMaze = rand() %20;           //Chooses new random map
+     
       for(int i = 0; i< 27; i++)
       {
         for(int j = 0; j < 52; j++)
         {
-          currMaze[i][j] = mazes[randMaze][i][j];
+          currMaze[i][j] = mazes[randMaze][i][j]; 
         }
       }
       x = 1;
       y = 1;
-      curPlayer.location[0] = x;
+      curPlayer.location[0] = x;    //Resets current player
       curPlayer.location[1] = y;
       curPlayer.movesLeft = 200;
       printf("\033[H\033[J");  
       PrintMainScreen();
-      while(input != 'e')
+      while(input != 'e')           //Waits at main screen for the play to restart
       {
         input = getche();
       }

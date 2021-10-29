@@ -69,15 +69,35 @@ void PrintMaze(char curMaze[27][52], char input)
       }
       else if(curMaze[i][j] == '&') 
       {
-        printf(KGRN"%c",curMaze[i][j]);
+        printf(KBLU"%c",curMaze[i][j]);
       }
       else if(curMaze[i][j] == ' ')
       {
-        printf(KBLU"~");
+        printf(KWHT"~");
       }
       else if(curMaze[i][j] == 'X')
       {
         printf(KGRN"%c",curMaze[i][j]);
+      }
+      else if(curMaze[i][j] == '.' || curMaze[i][j] == '*')
+      {
+        printf(KCYN"%c",curMaze[i][j]);
+      }
+      else if(curMaze[i][j] == '!')
+      {
+        printf(KYEL"%c",curMaze[i][j]);
+      }
+      else if(curMaze[i][j] == '+')
+      {
+        printf(KGRN"%c",curMaze[i][j]);
+      }
+      else if(curMaze[i][j] == '-')
+      {
+        printf(KRED"%c",curMaze[i][j]);
+      }
+      else if(curMaze[i][j] == '$')
+      {
+        printf(KMAG"%c",curMaze[i][j]);
       }
       else
       {
