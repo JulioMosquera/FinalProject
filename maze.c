@@ -93,6 +93,7 @@ int main(void)
 
   while(1)
   {    
+    system("clear");
     printf("\033[H\033[J");
     time_t end = time(NULL);
     curPlayer.timeSpent = end-begin;
