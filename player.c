@@ -2,6 +2,9 @@
 
 #include "player.h"
 
+// Initializes player to the given location x = 1, y = 1;
+// Score / Multiplier and timespent set to default values;
+
 Player initPlayer(int loc[2], int ml, int s, int sm)
 {
     Player newPlayer;
@@ -15,12 +18,17 @@ Player initPlayer(int loc[2], int ml, int s, int sm)
     return newPlayer;
 }
 
+// moves player to new location
+
 Player moverplayer(Player p, int loc[2])
 {
   p.location[0] = loc[0];
   p.location[1] = loc[1];
   return p;
 }
+
+// Multiplies the new score recieved by the multipliers
+// obtained in game and adds it to the previous sum
 
 Player updateScore(Player p, int s)
 {
@@ -29,11 +37,17 @@ Player updateScore(Player p, int s)
   return p;
 }
 
+// Increases the score multiplier by 1
+
 Player addMultipler(Player p)
 {
   p.scoreMultipler += 1;
   return p;
 }
+
+// When the remaining moves becomes less than 0
+// Displays the game over screen
+// Resets player location and moves and sets it up for the next map
 
 int gameOver(Player p)
 {
@@ -49,6 +63,10 @@ int gameOver(Player p)
   }
 }
 
+// When the player's location reaches the X which is located at the end of the map
+// if you reach the end, return false
+// else return true
+
 int youWon(Player p)
 {
   Player newPlayer = p;
@@ -62,6 +80,15 @@ int youWon(Player p)
   }
   
 }
+
+// If the input is in the positive X direction
+// // Checks what the next character on the board is
+// If the next space the player is moving to is 
+// # * ! $ + -
+// Do the following to influence the game
+
+// True was used to progress X or Y in the positive direction
+// Whereas false was used to progress in the negative direction
 
 Player CheckNextCharX(char curMaze[27][52], char origMaze[27][52], int i, Player p)
 {
@@ -103,6 +130,8 @@ Player CheckNextCharX(char curMaze[27][52], char origMaze[27][52], int i, Player
       }
     }
   }
+  // If the input is in the negative X direction
+  // Same as above is applied
   if( i == 0)
   {
     if(curMaze[y][x - 1] != '#')
@@ -145,6 +174,7 @@ Player CheckNextCharY(char curMaze[27][52], char origMaze[27][52], int i, Player
   Player newPlayer = p;
   int x = newPlayer.location[0];
   int y = newPlayer.location[1];
+  // If input is in the positive Y direction
   if( i == 1)
   {
     if(curMaze[y + 1][x] != '#')
@@ -180,6 +210,7 @@ Player CheckNextCharY(char curMaze[27][52], char origMaze[27][52], int i, Player
       }
     }
   }
+  // If input is in the negative Y direction
   if( i == 0)
   {
     if(curMaze[y - 1][x] != '#')
